@@ -1,9 +1,18 @@
 ---
 - name: start supervisor
   action: service name=supervisor state=started enabled=yes
-  
+
 - name: restart supervisor
   action: service name=supervisor state=restarted enabled=yes
-  
+
 - name: reload supervisor
   action: service name=supervisor state=reloaded
+
+- name: reread supervisor
+  shell: supervisorctl reread
+
+- name: update supervisor
+  shell: supervisorctl update
+
+- name: start supervisor
+  shell: supervisorctl start all
