@@ -1,5 +1,8 @@
 ---
 - name: install supervisor package
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - supervisor
+  apt:
+    name: {{ packages }}
+    state: latest
+  vars:
+    packages:
+      - supervisor
